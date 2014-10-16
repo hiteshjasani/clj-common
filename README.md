@@ -2,6 +2,10 @@
 
 A Clojure library for commonly used functions.
 
+## Version
+
+[![Clojars Project](http://clojars.org/org.jasani/common/latest-version.svg)]
+
 ## Usage
 
 FIXME
