@@ -8,3 +8,14 @@
 (deftest newline-test
   (is (= "hello world\n" (with-out-str (pff "hello %s\n" "world")))))
 
+(deftest retry-succeeds
+  (is (= "hello world\n" (with-out-str (with-retries 3 (fn [] (println "hello world")))))))
+
+(deftest retry-fails
+  (try
+    (with-retries 3 #(throw (Exception. "foo")))
+    (catch Exception e
+      (is (= "foo" (.getMessage e))))))
+
+
+

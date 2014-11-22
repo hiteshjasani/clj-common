@@ -13,3 +13,21 @@
                *flush-on-newline*)
       (flush))))
 
+
+(defn with-retries [n thunk]
+  "Make n attempts to invoke a thunk, otherwise failing with exception.
+
+  (with-retries 3 #(println \"hello\"))
+
+  would attempt 3 invocations of the thunk or else throw an exception."
+  (loop [i (dec n)]
+    (if-let [res (try
+                   [(thunk)]
+                   (catch Exception e
+                     (when (zero? i)
+                       (throw e))))]
+      (res 0)
+      (recur (dec i)))))
+
+
+
