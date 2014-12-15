@@ -6,7 +6,7 @@
    Prints formatted text using *flush-on-newline* policy
    for buffer flushing."
   [fmt & args]
-  (let [s (apply format fmt args)
+  (let [s ^String (apply format fmt args)
         i (.indexOf s "\n")]
     (print s)
     (when (and (>= i 0)

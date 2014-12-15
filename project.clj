@@ -1,4 +1,4 @@
-(defproject org.jasani/common "0.1.2"
+(defproject org.jasani/common "0.1.3"
   :description "Commonly used Clojure routines"
   :url "https://github.com/hiteshjasani/clj-common"
   :license {:name "The MIT License"
